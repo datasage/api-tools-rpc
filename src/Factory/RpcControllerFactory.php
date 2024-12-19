@@ -6,8 +6,8 @@ namespace Laminas\ApiTools\Rpc\Factory;
 
 use Exception;
 use Laminas\ApiTools\Rpc\RpcController;
-use Laminas\ServiceManager\AbstractFactoryInterface;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Laminas\ServiceManager\Factory\AbstractFactoryInterface;
 use Laminas\ServiceManager\ServiceLocatorInterface;
 use Psr\Container\ContainerInterface;
 

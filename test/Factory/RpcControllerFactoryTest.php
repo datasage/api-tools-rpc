@@ -284,7 +284,7 @@ class RpcControllerFactoryTest extends TestCase
     /**
      * @return array<string, array{0: mixed}>
      */
-    public function invalidCallables(): array
+    public static function invalidCallables(): array
     {
         return [
             'null'       => [null],
@@ -331,7 +331,7 @@ class RpcControllerFactoryTest extends TestCase
     /**
      * @return array<string, array{0: callable}>
      */
-    public function validCallbacks(): array
+    public static function validCallbacks(): array
     {
         return [
             'function'        => ['is_array'],
