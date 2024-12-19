@@ -25,9 +25,6 @@ class OptionsListener implements ListenerAggregateInterface
     /** @var array */
     protected $config;
 
-    /**
-     * @param  array $config
-     */
     public function __construct(array $config)
     {
         $this->config = $config;
@@ -123,7 +120,6 @@ class OptionsListener implements ListenerAggregateInterface
     /**
      * Create the Allow header
      *
-     * @param array $options
      * @psalm-param array<array-key,null|Stringable|scalar> $options
      * @return void
      */
@@ -138,7 +134,6 @@ class OptionsListener implements ListenerAggregateInterface
      *
      * Creates an empty response with an Allow header.
      *
-     * @param  array $options
      * @psalm-param array<array-key,null|Stringable|scalar> $options
      * @return Response
      */
@@ -152,7 +147,6 @@ class OptionsListener implements ListenerAggregateInterface
     /**
      * Prepare a 405 response
      *
-     * @param  array $options
      * @psalm-param array<array-key,null|Stringable|scalar> $options
      * @return Response
      */

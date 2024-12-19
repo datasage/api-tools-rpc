@@ -41,7 +41,6 @@ class ParameterMatcher
     /**
      * @param callable $callable
      * @param array $parameters
-     * @return array
      * @throws ReflectionException
      */
     public function getMatchedParameters($callable, $parameters): array

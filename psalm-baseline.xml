@@ -1,164 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.9.3@4c262932602b9bbab5020863d1eb22d49de0dbf4">
+<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
   <file src="src/Factory/OptionsListenerFactory.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$config['api-tools-rpc']</code>
+    <MixedArrayAccess>
+      <code><![CDATA[$config['api-tools-rpc']]]></code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$config</code>
+    <MixedAssignment>
+      <code><![CDATA[$config]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
+    <MixedInferredReturnType>
+      <code><![CDATA[array]]></code>
     </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$config['api-tools-rpc']</code>
+    <MixedReturnStatement>
+      <code><![CDATA[$config['api-tools-rpc']]]></code>
     </MixedReturnStatement>
   </file>
   <file src="src/Factory/RpcControllerFactory.php">
-    <DeprecatedInterface occurrences="1">
-      <code>RpcControllerFactory</code>
-    </DeprecatedInterface>
-    <MixedArgument occurrences="4">
-      <code>$container</code>
-      <code>$container</code>
-      <code>$container-&gt;get('ControllerManager')</code>
-      <code>$string</code>
+    <MixedArgument>
+      <code><![CDATA[$container]]></code>
+      <code><![CDATA[$container]]></code>
+      <code><![CDATA[$container->get('ControllerManager')]]></code>
+      <code><![CDATA[$string]]></code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$config['api-tools-rpc']</code>
-      <code>$config['api-tools-rpc']</code>
+    <MixedArrayAccess>
+      <code><![CDATA[$config['api-tools-rpc']]]></code>
+      <code><![CDATA[$config['api-tools-rpc']]]></code>
+      <code><![CDATA[$config['api-tools-rpc'][$requestedName]]]></code>
+      <code><![CDATA[$config['api-tools-rpc'][$requestedName]]]></code>
+      <code><![CDATA[$config['api-tools-rpc'][$requestedName]['callable']]]></code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="5">
-      <code>$config</code>
-      <code>$config</code>
-      <code>$config</code>
-      <code>$container</code>
-      <code>$container</code>
+    <MixedAssignment>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$container]]></code>
+      <code><![CDATA[$container]]></code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>new $class()</code>
+    <MixedMethodCall>
+      <code><![CDATA[new $class()]]></code>
     </MixedMethodCall>
-    <ParamNameMismatch occurrences="2">
-      <code>$controllerManager</code>
-      <code>$controllerManager</code>
-    </ParamNameMismatch>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$callable</code>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$callable]]></code>
     </PossiblyInvalidArgument>
-    <UndefinedInterfaceMethod occurrences="2">
-      <code>getServiceLocator</code>
-      <code>getServiceLocator</code>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$method]]></code>
+    </PossiblyUndefinedArrayOffset>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $callable]]></code>
+      <code><![CDATA[$callable]]></code>
+    </RiskyTruthyFalsyComparison>
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[getServiceLocator]]></code>
+      <code><![CDATA[getServiceLocator]]></code>
     </UndefinedInterfaceMethod>
   </file>
   <file src="src/Module.php">
-    <MixedAssignment occurrences="3">
-      <code>$optionsListener</code>
-      <code>$strategy</code>
-      <code>$view</code>
+    <MixedAssignment>
+      <code><![CDATA[$optionsListener]]></code>
+      <code><![CDATA[$strategy]]></code>
+      <code><![CDATA[$view]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
+    <MixedInferredReturnType>
+      <code><![CDATA[array]]></code>
     </MixedInferredReturnType>
-    <MixedMethodCall occurrences="4">
-      <code>attach</code>
-      <code>attach</code>
-      <code>getEventManager</code>
-      <code>getView</code>
+    <MixedMethodCall>
+      <code><![CDATA[attach]]></code>
+      <code><![CDATA[attach]]></code>
+      <code><![CDATA[getEventManager]]></code>
+      <code><![CDATA[getView]]></code>
     </MixedMethodCall>
-    <MixedReturnStatement occurrences="1">
-      <code>include __DIR__ . '/../config/module.config.php'</code>
+    <MixedReturnStatement>
+      <code><![CDATA[include __DIR__ . '/../config/module.config.php']]></code>
     </MixedReturnStatement>
   </file>
   <file src="src/OptionsListener.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$response</code>
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$response]]></code>
     </ArgumentTypeCoercion>
-    <LessSpecificReturnStatement occurrences="1">
-      <code>$response</code>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[$response]]></code>
     </LessSpecificReturnStatement>
-    <MixedArgument occurrences="3">
-      <code>$config</code>
-      <code>$config['http_methods']</code>
-      <code>$controller</code>
+    <MixedArgument>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$config['http_methods']]]></code>
+      <code><![CDATA[$controller]]></code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$config</code>
-      <code>$controller</code>
+    <MixedAssignment>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$controller]]></code>
     </MixedAssignment>
-    <MoreSpecificReturnType occurrences="1">
-      <code>Response</code>
+    <MoreSpecificReturnType>
+      <code><![CDATA[Response]]></code>
     </MoreSpecificReturnType>
-    <TooManyArguments occurrences="1">
-      <code>setStatusCode</code>
+    <TooManyArguments>
+      <code><![CDATA[setStatusCode]]></code>
     </TooManyArguments>
   </file>
   <file src="src/ParameterMatcher.php">
-    <MixedArgument occurrences="2">
-      <code>$method</code>
-      <code>$object</code>
+    <MixedArgument>
+      <code><![CDATA[$method]]></code>
+      <code><![CDATA[$object]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$pn</code>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$pn]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="6">
-      <code>$dispatchParams[]</code>
-      <code>$dispatchParams[]</code>
-      <code>$method</code>
-      <code>$normalParams[str_replace(['-', '_'], '', strtolower($pn))]</code>
-      <code>$object</code>
-      <code>$pv</code>
+    <MixedAssignment>
+      <code><![CDATA[$dispatchParams[]]]></code>
+      <code><![CDATA[$dispatchParams[]]]></code>
+      <code><![CDATA[$method]]></code>
+      <code><![CDATA[$normalParams[str_replace(['-', '_'], '', strtolower($pn))]]]></code>
+      <code><![CDATA[$object]]></code>
+      <code><![CDATA[$pv]]></code>
     </MixedAssignment>
   </file>
   <file src="src/RpcController.php">
-    <MixedArgument occurrences="2">
-      <code>$action</code>
-      <code>$routeParameters ?: []</code>
+    <MixedArgument>
+      <code><![CDATA[$action]]></code>
+      <code><![CDATA[$routeParameters ?: []]]></code>
     </MixedArgument>
-    <MixedAssignment occurrences="4">
-      <code>$action</code>
-      <code>$contentNegotiationParams</code>
-      <code>$result</code>
-      <code>$routeParameters</code>
+    <MixedAssignment>
+      <code><![CDATA[$action]]></code>
+      <code><![CDATA[$contentNegotiationParams]]></code>
+      <code><![CDATA[$result]]></code>
+      <code><![CDATA[$routeParameters]]></code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>getRouteParams</code>
+    <MixedMethodCall>
+      <code><![CDATA[getRouteParams]]></code>
     </MixedMethodCall>
-    <PossiblyNullArgument occurrences="1">
-      <code>$callable</code>
+    <PossiblyNullArgument>
+      <code><![CDATA[$callable]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullReference occurrences="2">
-      <code>getParam</code>
-      <code>getParams</code>
+    <PossiblyNullReference>
+      <code><![CDATA[getParam]]></code>
+      <code><![CDATA[getParams]]></code>
     </PossiblyNullReference>
-    <RedundantCondition occurrences="1">
-      <code>is_array($this-&gt;wrappedCallable) &amp;&amp; is_callable($this-&gt;wrappedCallable)</code>
+    <RedundantCondition>
+      <code><![CDATA[is_array($this->wrappedCallable) && is_callable($this->wrappedCallable)]]></code>
     </RedundantCondition>
   </file>
   <file src="test/Factory/OptionsListenerFactoryTest.php">
-    <MixedAssignment occurrences="1">
-      <code>$actual</code>
+    <MixedAssignment>
+      <code><![CDATA[$actual]]></code>
     </MixedAssignment>
+    <UnusedMethodCall>
+      <code><![CDATA[setAccessible]]></code>
+    </UnusedMethodCall>
   </file>
   <file src="test/Factory/RpcControllerFactoryTest.php">
-    <MixedArrayAccess occurrences="2">
-      <code>$wrappedCallable[0]</code>
-      <code>$wrappedCallable[1]</code>
+    <DeprecatedMethod>
+      <code><![CDATA[returnValueMap]]></code>
+      <code><![CDATA[returnValueMap]]></code>
+      <code><![CDATA[returnValueMap]]></code>
+    </DeprecatedMethod>
+    <MixedArrayAccess>
+      <code><![CDATA[$wrappedCallable[0]]]></code>
+      <code><![CDATA[$wrappedCallable[1]]]></code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="2">
-      <code>$actual</code>
-      <code>$wrappedCallable</code>
+    <MixedAssignment>
+      <code><![CDATA[$actual]]></code>
+      <code><![CDATA[$wrappedCallable]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>class-string</code>
+    <MixedInferredReturnType>
+      <code><![CDATA[class-string]]></code>
     </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>LegacyRouteMatch::class</code>
+    <MixedReturnStatement>
+      <code><![CDATA[LegacyRouteMatch::class]]></code>
     </MixedReturnStatement>
-    <UndefinedClass occurrences="4">
-      <code>Foo</code>
-      <code>Foo</code>
-      <code>LegacyRouteMatch</code>
-      <code>\ZfTest\Rpc\Factory\TestAsset\Foo</code>
+    <UndefinedClass>
+      <code><![CDATA[Foo]]></code>
+      <code><![CDATA[Foo]]></code>
+      <code><![CDATA[LegacyRouteMatch]]></code>
+      <code><![CDATA[\ZfTest\Rpc\Factory\TestAsset\Foo]]></code>
     </UndefinedClass>
+    <UnusedMethodCall>
+      <code><![CDATA[setAccessible]]></code>
+      <code><![CDATA[setAccessible]]></code>
+    </UnusedMethodCall>
   </file>
 </files>

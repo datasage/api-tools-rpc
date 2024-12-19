@@ -57,9 +57,6 @@ class OptionsListenerFactoryTest extends TestCase
         self::assertListenerConfig(['foo' => 'bar'], $listener);
     }
 
-    /**
-     * @param array $expected
-     */
     private static function assertListenerConfig(array $expected, OptionsListener $listener): void
     {
         $reflectionClass    = new ReflectionClass($listener);
