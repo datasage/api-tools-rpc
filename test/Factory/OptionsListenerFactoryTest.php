@@ -61,8 +61,7 @@ class OptionsListenerFactoryTest extends TestCase
     {
         $reflectionClass    = new ReflectionClass($listener);
         $reflectionProperty = $reflectionClass->getProperty('config');
-        $reflectionProperty->setAccessible(true);
-        $actual = $reflectionProperty->getValue($listener);
+        $actual             = $reflectionProperty->getValue($listener);
 
         self::assertEquals($expected, $actual);
     }
