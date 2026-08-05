@@ -177,9 +177,6 @@
     <MixedAssignment>
       <code><![CDATA[$actual]]></code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code><![CDATA[setAccessible]]></code>
-    </UnusedMethodCall>
   </file>
   <file src="test/Factory/RpcControllerFactoryTest.php">
     <ClassMustBeFinal>
@@ -210,10 +207,6 @@
       <code><![CDATA[LegacyRouteMatch]]></code>
       <code><![CDATA[\ZfTest\Rpc\Factory\TestAsset\Foo]]></code>
     </UndefinedClass>
-    <UnusedMethodCall>
-      <code><![CDATA[setAccessible]]></code>
-      <code><![CDATA[setAccessible]]></code>
-    </UnusedMethodCall>
   </file>
   <file src="test/Factory/TestAsset/Foo.php">
     <ClassMustBeFinal>

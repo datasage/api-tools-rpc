@@ -185,8 +185,7 @@ class RpcControllerFactoryTest extends TestCase
 
         $this->assertInstanceOf(RpcController::class, $controller);
 
-        $r = new ReflectionProperty($controller, 'wrappedCallable');
-        $r->setAccessible(true);
+        $r        = new ReflectionProperty($controller, 'wrappedCallable');
         $callable = $r->getValue($controller);
         self::assertIsArray($callable);
         $this->assertInstanceOf(TestAsset\Foo::class, $callable[0]);
@@ -474,7 +473,6 @@ class RpcControllerFactoryTest extends TestCase
     {
         $reflectionClass    = new ReflectionClass($controller);
         $reflectionProperty = $reflectionClass->getProperty('wrappedCallable');
-        $reflectionProperty->setAccessible(true);
 
         return $reflectionProperty->getValue($controller);
     }
