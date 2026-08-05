@@ -1,0 +1,13 @@
+{
+  "exclude": [
+    {
+      "name": "Documentation Linting"
+    },
+    {
+      "name": "MkDocs Linting"
+    },
+    {
+      "name": "README Linting"
+    }
+  ]
+}
