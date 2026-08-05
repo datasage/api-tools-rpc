@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
+<files psalm-version="6.16.1@f1f5de594dc76faf8784e02d3dc4716c91c6f6ac">
   <file src="src/Factory/OptionsListenerFactory.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[OptionsListenerFactory]]></code>
+    </ClassMustBeFinal>
     <MixedArrayAccess>
       <code><![CDATA[$config['api-tools-rpc']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$config]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[array]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$config['api-tools-rpc']]]></code>
     </MixedReturnStatement>
   </file>
   <file src="src/Factory/RpcControllerFactory.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[RpcControllerFactory]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)]]></code>
+      <code><![CDATA[public function canCreate(ContainerInterface $container, $requestedName)]]></code>
+    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$container]]></code>
       <code><![CDATA[$container]]></code>
@@ -44,6 +51,10 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$method]]></code>
     </PossiblyUndefinedArrayOffset>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$name]]></code>
+      <code><![CDATA[$name]]></code>
+    </PossiblyUnusedParam>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $callable]]></code>
       <code><![CDATA[$callable]]></code>
@@ -54,14 +65,14 @@
     </UndefinedInterfaceMethod>
   </file>
   <file src="src/Module.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[Module]]></code>
+    </ClassMustBeFinal>
     <MixedAssignment>
       <code><![CDATA[$optionsListener]]></code>
       <code><![CDATA[$strategy]]></code>
       <code><![CDATA[$view]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[array]]></code>
-    </MixedInferredReturnType>
     <MixedMethodCall>
       <code><![CDATA[attach]]></code>
       <code><![CDATA[attach]]></code>
@@ -71,14 +82,23 @@
     <MixedReturnStatement>
       <code><![CDATA[include __DIR__ . '/../config/module.config.php']]></code>
     </MixedReturnStatement>
+    <UnusedClass>
+      <code><![CDATA[Module]]></code>
+    </UnusedClass>
   </file>
   <file src="src/OptionsListener.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$response]]></code>
     </ArgumentTypeCoercion>
+    <ClassMustBeFinal>
+      <code><![CDATA[OptionsListener]]></code>
+    </ClassMustBeFinal>
     <LessSpecificReturnStatement>
       <code><![CDATA[$response]]></code>
     </LessSpecificReturnStatement>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function attach(EventManagerInterface $events, $priority = 1)]]></code>
+    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$config]]></code>
       <code><![CDATA[$config['http_methods']]]></code>
@@ -96,23 +116,33 @@
     </TooManyArguments>
   </file>
   <file src="src/ParameterMatcher.php">
-    <MixedArgument>
-      <code><![CDATA[$method]]></code>
-      <code><![CDATA[$object]]></code>
-    </MixedArgument>
+    <ClassMustBeFinal>
+      <code><![CDATA[ParameterMatcher]]></code>
+    </ClassMustBeFinal>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$pn]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$dispatchParams[]]]></code>
       <code><![CDATA[$dispatchParams[]]]></code>
-      <code><![CDATA[$method]]></code>
       <code><![CDATA[$normalParams[str_replace(['-', '_'], '', strtolower($pn))]]]></code>
-      <code><![CDATA[$object]]></code>
       <code><![CDATA[$pv]]></code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$object]]></code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="src/RpcController.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[RpcController]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedClass>
+      <code><![CDATA[JsonModel::class]]></code>
+    </DeprecatedClass>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function onDispatch(MvcEvent $e)]]></code>
+      <code><![CDATA[public static function getMethodFromAction($action)]]></code>
+    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$action]]></code>
       <code><![CDATA[$routeParameters ?: []]]></code>
@@ -138,6 +168,12 @@
     </RedundantCondition>
   </file>
   <file src="test/Factory/OptionsListenerFactoryTest.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[OptionsListenerFactoryTest]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function setUp(): void]]></code>
+    </MissingOverrideAttribute>
     <MixedAssignment>
       <code><![CDATA[$actual]]></code>
     </MixedAssignment>
@@ -146,11 +182,17 @@
     </UnusedMethodCall>
   </file>
   <file src="test/Factory/RpcControllerFactoryTest.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[RpcControllerFactoryTest]]></code>
+    </ClassMustBeFinal>
     <DeprecatedMethod>
       <code><![CDATA[returnValueMap]]></code>
       <code><![CDATA[returnValueMap]]></code>
       <code><![CDATA[returnValueMap]]></code>
     </DeprecatedMethod>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function setUp(): void]]></code>
+    </MissingOverrideAttribute>
     <MixedArrayAccess>
       <code><![CDATA[$wrappedCallable[0]]]></code>
       <code><![CDATA[$wrappedCallable[1]]]></code>
@@ -159,9 +201,6 @@
       <code><![CDATA[$actual]]></code>
       <code><![CDATA[$wrappedCallable]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[class-string]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[LegacyRouteMatch::class]]></code>
     </MixedReturnStatement>
@@ -175,5 +214,19 @@
       <code><![CDATA[setAccessible]]></code>
       <code><![CDATA[setAccessible]]></code>
     </UnusedMethodCall>
+  </file>
+  <file src="test/Factory/TestAsset/Foo.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[Foo]]></code>
+    </ClassMustBeFinal>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[bar]]></code>
+      <code><![CDATA[baz]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Factory/TestAsset/Invokable.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[Invokable]]></code>
+    </ClassMustBeFinal>
   </file>
 </files>
