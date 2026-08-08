@@ -18,6 +18,7 @@ use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionProperty;
@@ -26,10 +27,10 @@ use function class_exists;
 
 class RpcControllerFactoryTest extends TestCase
 {
-    /** @var ServiceLocatorInterface&MockObject */
+    /** @var ServiceLocatorInterface&Stub */
     private $services;
 
-    /** @var ControllerManager&MockObject */
+    /** @var ControllerManager&(MockObject|Stub) */
     private $controllers;
 
     /** @var RpcControllerFactory */
@@ -38,11 +39,29 @@ class RpcControllerFactoryTest extends TestCase
     #[Override]
     public function setUp(): void
     {
-        $this->services    = $this->createMock(ServiceLocatorInterface::class);
-        $this->controllers = $this->createMock(ControllerManager::class);
+        $this->services    = $this->createStub(ServiceLocatorInterface::class);
+        $this->controllers = $this->createStub(ControllerManager::class);
         $this->controllers->method('getServiceLocator')->willReturn($this->services);
 
         $this->factory = new RpcControllerFactory();
+    }
+
+    /**
+     * Swap the shared ControllerManager stub for a mock.
+     *
+     * Only the tests that assert on how the factory queries the manager need one. Must run
+     * before prepareServiceContainer(), which captures the instance into the container's
+     * get() map.
+     *
+     * @return ControllerManager&MockObject
+     */
+    private function expectControllerManager(): ControllerManager
+    {
+        $controllers = $this->createMock(ControllerManager::class);
+        $controllers->method('getServiceLocator')->willReturn($this->services);
+        $this->controllers = $controllers;
+
+        return $controllers;
     }
 
     /**
@@ -60,6 +79,8 @@ class RpcControllerFactoryTest extends TestCase
     #[Group('7')]
     public function testWillPullNonCallableStaticCallableFromControllerManagerIfServiceIsPresent(): void
     {
+        $this->expectControllerManager();
+
         $config = [
             'api-tools-rpc' => [
                 'Controller\Foo' => [
@@ -76,8 +97,8 @@ class RpcControllerFactoryTest extends TestCase
         $foo = new class {
         };
 
-        $this->controllers->method('has')->with('Foo')->willReturn(true);
-        $this->controllers->method('get')->with('Foo')->willReturn($foo);
+        $this->controllers->expects($this->atLeastOnce())->method('has')->with('Foo')->willReturn(true);
+        $this->controllers->expects($this->atLeastOnce())->method('get')->with('Foo')->willReturn($foo);
 
         $controllers = $this->controllers;
 
@@ -99,6 +120,8 @@ class RpcControllerFactoryTest extends TestCase
     #[Group('7')]
     public function testWillPullNonCallableStaticCallableFromServiceManagerIfServiceIsPresent(): void
     {
+        $this->expectControllerManager();
+
         $config = [
             'api-tools-rpc' => [
                 'Controller\Foo' => [
@@ -122,7 +145,7 @@ class RpcControllerFactoryTest extends TestCase
             ]
         );
 
-        $this->controllers->method('has')->with('Foo')->willReturn(false);
+        $this->controllers->expects($this->atLeastOnce())->method('has')->with('Foo')->willReturn(false);
 
         $controllers = $this->controllers;
 
@@ -390,7 +413,7 @@ class RpcControllerFactoryTest extends TestCase
             ],
         ];
 
-        $services          = $this->createMock(ServiceLocatorInterface::class);
+        $services          = $this->createStub(ServiceLocatorInterface::class);
         $controllerManager = new ControllerManager($services, $config['controllers']);
 
         $this->prepareServiceContainer(
@@ -404,8 +427,8 @@ class RpcControllerFactoryTest extends TestCase
             [
                 ['config', $config],
                 ['ControllerManager', $controllerManager],
-                ['EventManager', $this->createMock(EventManagerInterface::class)],
-                ['ControllerPluginManager', $this->createMock(PluginManager::class)],
+                ['EventManager', $this->createStub(EventManagerInterface::class)],
+                ['ControllerPluginManager', $this->createStub(PluginManager::class)],
             ],
         );
 
@@ -421,7 +444,7 @@ class RpcControllerFactoryTest extends TestCase
 
         // The lines below verify that the callable is correctly called when decorated in an RpcController
         $event      = $this->createMock(MvcEvent::class);
-        $routeMatch = $this->createMock($this->getRouteMatchClass());
+        $routeMatch = $this->createStub($this->getRouteMatchClass());
         $event
             ->expects($this->atLeastOnce())
             ->method('getParam')
