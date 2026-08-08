@@ -168,6 +168,37 @@
     <ClassMustBeFinal>
       <code><![CDATA[RpcControllerFactoryTest]]></code>
     </ClassMustBeFinal>
+    <InvalidArgument>
+      <code><![CDATA[$services]]></code>
+      <code><![CDATA[$this->services]]></code>
+      <code><![CDATA[$this->services]]></code>
+      <code><![CDATA[$this->services]]></code>
+      <code><![CDATA[$this->services]]></code>
+      <code><![CDATA[$this->services]]></code>
+      <code><![CDATA[$this->services]]></code>
+      <code><![CDATA[$this->services]]></code>
+      <code><![CDATA[$this->services]]></code>
+      <code><![CDATA[$this->services]]></code>
+      <code><![CDATA[$this->services]]></code>
+    </InvalidArgument>
+    <InvalidDocblock>
+      <code><![CDATA[private $controllers;]]></code>
+    </InvalidDocblock>
+    <MissingPropertyType>
+      <code><![CDATA[$controllers]]></code>
+    </MissingPropertyType>
+    <MixedArgument>
+      <code><![CDATA[$controllers]]></code>
+      <code><![CDATA[$controllers]]></code>
+      <code><![CDATA[$controllers]]></code>
+      <code><![CDATA[$this->controllers]]></code>
+      <code><![CDATA[$this->controllers]]></code>
+      <code><![CDATA[$this->controllers]]></code>
+      <code><![CDATA[$this->controllers]]></code>
+      <code><![CDATA[$this->controllers]]></code>
+      <code><![CDATA[$this->controllers]]></code>
+      <code><![CDATA[$this->controllers]]></code>
+    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$getMap]]></code>
       <code><![CDATA[$hasMap]]></code>
@@ -178,8 +209,27 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$actual]]></code>
+      <code><![CDATA[$controllers]]></code>
+      <code><![CDATA[$controllers]]></code>
+      <code><![CDATA[$controllers]]></code>
       <code><![CDATA[$wrappedCallable]]></code>
     </MixedAssignment>
+    <MixedMethodCall>
+      <code><![CDATA[expects]]></code>
+      <code><![CDATA[expects]]></code>
+      <code><![CDATA[expects]]></code>
+      <code><![CDATA[method]]></code>
+      <code><![CDATA[method]]></code>
+      <code><![CDATA[method]]></code>
+      <code><![CDATA[method]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturn]]></code>
+      <code><![CDATA[willReturnMap]]></code>
+      <code><![CDATA[with]]></code>
+      <code><![CDATA[with]]></code>
+      <code><![CDATA[with]]></code>
+    </MixedMethodCall>
     <MixedReturnStatement>
       <code><![CDATA[LegacyRouteMatch::class]]></code>
     </MixedReturnStatement>
@@ -189,6 +239,9 @@
       <code><![CDATA[LegacyRouteMatch]]></code>
       <code><![CDATA[\ZfTest\Rpc\Factory\TestAsset\Foo]]></code>
     </UndefinedClass>
+    <UnusedReturnValue>
+      <code><![CDATA[ControllerManager&MockObject]]></code>
+    </UnusedReturnValue>
   </file>
   <file src="test/Factory/TestAsset/Foo.php">
     <ClassMustBeFinal>

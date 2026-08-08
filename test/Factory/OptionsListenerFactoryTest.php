@@ -25,7 +25,7 @@ class OptionsListenerFactoryTest extends TestCase
 
     public function testWillCreateOptionsListenerWithEmptyConfigWhenConfigServiceIsNotPresent(): void
     {
-        $this->container->method('has')->with('config')->willReturn(false);
+        $this->container->expects($this->atLeastOnce())->method('has')->with('config')->willReturn(false);
         $factory = new OptionsListenerFactory();
 
         $listener = $factory($this->container);
@@ -35,8 +35,8 @@ class OptionsListenerFactoryTest extends TestCase
 
     public function testWillCreateOptionsListenerWithEmptyConfigWhenNoRpcConfigPresent(): void
     {
-        $this->container->method('has')->with('config')->willReturn(true);
-        $this->container->method('get')->with('config')->willReturn(['foo' => 'bar']);
+        $this->container->expects($this->atLeastOnce())->method('has')->with('config')->willReturn(true);
+        $this->container->expects($this->atLeastOnce())->method('get')->with('config')->willReturn(['foo' => 'bar']);
         $factory = new OptionsListenerFactory();
 
         $listener = $factory($this->container);
@@ -46,8 +46,8 @@ class OptionsListenerFactoryTest extends TestCase
 
     public function testWillCreateOptionsListenerWithRpcConfigWhenPresent(): void
     {
-        $this->container->method('has')->with('config')->willReturn(true);
-        $this->container->method('get')->with('config')->willReturn([
+        $this->container->expects($this->atLeastOnce())->method('has')->with('config')->willReturn(true);
+        $this->container->expects($this->atLeastOnce())->method('get')->with('config')->willReturn([
             'api-tools-rpc' => [
                 'foo' => 'bar',
             ],
