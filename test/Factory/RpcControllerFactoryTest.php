@@ -14,6 +14,9 @@ use Laminas\Mvc\Router\RouteMatch as LegacyRouteMatch;
 use Laminas\Router\RouteMatch;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\ServiceLocatorInterface;
+use Override;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
@@ -32,6 +35,7 @@ class RpcControllerFactoryTest extends TestCase
     /** @var RpcControllerFactory */
     private $factory;
 
+    #[Override]
     public function setUp(): void
     {
         $this->services    = $this->createMock(ServiceLocatorInterface::class);
@@ -49,13 +53,11 @@ class RpcControllerFactoryTest extends TestCase
         $hasMap[] = ['ControllerManager', true];
         $getMap[] = ['ControllerManager', $this->controllers];
 
-        $container->method('has')->will($this->returnValueMap($hasMap));
-        $container->method('get')->will($this->returnValueMap($getMap));
+        $container->method('has')->willReturnMap($hasMap);
+        $container->method('get')->willReturnMap($getMap);
     }
 
-    /**
-     * @group 7
-     */
+    #[Group('7')]
     public function testWillPullNonCallableStaticCallableFromControllerManagerIfServiceIsPresent(): void
     {
         $config = [
@@ -94,9 +96,7 @@ class RpcControllerFactoryTest extends TestCase
         self::assertControllerWrappedCallable([$foo, 'bar'], $controller);
     }
 
-    /**
-     * @group 7
-     */
+    #[Group('7')]
     public function testWillPullNonCallableStaticCallableFromServiceManagerIfServiceIsPresent(): void
     {
         $config = [
@@ -141,9 +141,7 @@ class RpcControllerFactoryTest extends TestCase
         self::assertControllerWrappedCallable([$foo, 'bar'], $controller);
     }
 
-    /**
-     * @group 7
-     */
+    #[Group('7')]
     public function testWillInstantiateCallableClassIfClassExists(): void
     {
         $config = [
@@ -165,10 +163,10 @@ class RpcControllerFactoryTest extends TestCase
 
         $this->controllers
             ->method('has')
-            ->will($this->returnValueMap([
+            ->willReturnMap([
                 [TestAsset\Foo::class, false],
                 [Foo::class, false],
-            ]));
+            ]);
 
         $controllers = $this->controllers;
 
@@ -297,9 +295,9 @@ class RpcControllerFactoryTest extends TestCase
     }
 
     /**
-     * @dataProvider invalidCallables
      * @param mixed $callable
      */
+    #[DataProvider('invalidCallables')]
     public function testServiceCreationFailsForInvalidCallable($callable): void
     {
         $this->prepareServiceContainer(
@@ -344,9 +342,7 @@ class RpcControllerFactoryTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider validCallbacks
-     */
+    #[DataProvider('validCallbacks')]
     public function testServiceCreationReturnsRpcControllerWrappingCallableForValidCallbacks(callable $callable): void
     {
         $this->prepareServiceContainer(
@@ -377,9 +373,8 @@ class RpcControllerFactoryTest extends TestCase
 
     /**
      * @see https://github.com/zfcampus/zf-rpc/issues/18
-     *
-     * @group 7
      */
+    #[Group('7')]
     public function testFactoryDoesNotEnterACircularDependencyLookupCondition(): void
     {
         $config = [
@@ -439,7 +434,7 @@ class RpcControllerFactoryTest extends TestCase
         $event
             ->expects($this->atLeastOnce())
             ->method('setParam')
-            ->with('LaminasContentNegotiationFallback', $this->isType('array'));
+            ->with('LaminasContentNegotiationFallback', $this->isArray());
         $event
             ->expects($this->once())
             ->method('setResult')

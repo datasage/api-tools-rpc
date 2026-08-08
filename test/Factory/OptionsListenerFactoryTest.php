@@ -6,6 +6,7 @@ namespace LaminasTest\ApiTools\Rpc\Factory;
 
 use Laminas\ApiTools\Rpc\Factory\OptionsListenerFactory;
 use Laminas\ApiTools\Rpc\OptionsListener;
+use Override;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
@@ -16,6 +17,7 @@ class OptionsListenerFactoryTest extends TestCase
     /** @var ContainerInterface&MockObject */
     private $container;
 
+    #[Override]
     public function setUp(): void
     {
         $this->container = $this->createMock(ContainerInterface::class);
