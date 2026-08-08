@@ -9,6 +9,7 @@ use Laminas\ApiTools\Rpc\RpcController;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\Factory\AbstractFactoryInterface;
 use Laminas\ServiceManager\ServiceLocatorInterface;
+use Override;
 use Psr\Container\ContainerInterface;
 
 use function class_exists;
@@ -36,6 +37,7 @@ class RpcControllerFactory implements AbstractFactoryInterface
      * @param string $requestedName
      * @return bool
      */
+    #[Override]
     public function canCreate(ContainerInterface $container, $requestedName)
     {
         // Prevent circular lookup
@@ -85,6 +87,7 @@ class RpcControllerFactory implements AbstractFactoryInterface
      * @throws ServiceNotCreatedException If the callable configuration value
      *     associated with the controller is not callable.
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $config   = $container->get('config');

@@ -9,6 +9,7 @@ use Exception;
 use Laminas\Mvc\Controller\AbstractActionController as BaseAbstractActionController;
 use Laminas\Mvc\MvcEvent;
 use Laminas\View\Model\JsonModel;
+use Override;
 
 use function call_user_func_array;
 use function is_array;
@@ -36,6 +37,7 @@ class RpcController extends BaseAbstractActionController
     /**
      * @return void
      */
+    #[Override]
     public function onDispatch(MvcEvent $e)
     {
         $routeMatch = $e->getRouteMatch();
@@ -81,6 +83,7 @@ class RpcController extends BaseAbstractActionController
      * @param  string $action
      * @return string
      */
+    #[Override]
     public static function getMethodFromAction($action)
     {
         $method = str_replace(['.', '-', '_'], ' ', $action);

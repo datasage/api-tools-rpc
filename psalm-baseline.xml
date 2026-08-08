@@ -18,10 +18,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[RpcControllerFactory]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)]]></code>
-      <code><![CDATA[public function canCreate(ContainerInterface $container, $requestedName)]]></code>
-    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$container]]></code>
       <code><![CDATA[$container]]></code>
@@ -96,9 +92,6 @@
     <LessSpecificReturnStatement>
       <code><![CDATA[$response]]></code>
     </LessSpecificReturnStatement>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function attach(EventManagerInterface $events, $priority = 1)]]></code>
-    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$config]]></code>
       <code><![CDATA[$config['http_methods']]]></code>
@@ -139,10 +132,6 @@
     <DeprecatedClass>
       <code><![CDATA[JsonModel::class]]></code>
     </DeprecatedClass>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function onDispatch(MvcEvent $e)]]></code>
-      <code><![CDATA[public static function getMethodFromAction($action)]]></code>
-    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$action]]></code>
       <code><![CDATA[$routeParameters ?: []]]></code>
@@ -171,9 +160,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[OptionsListenerFactoryTest]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function setUp(): void]]></code>
-    </MissingOverrideAttribute>
     <MixedAssignment>
       <code><![CDATA[$actual]]></code>
     </MixedAssignment>
@@ -182,14 +168,10 @@
     <ClassMustBeFinal>
       <code><![CDATA[RpcControllerFactoryTest]]></code>
     </ClassMustBeFinal>
-    <DeprecatedMethod>
-      <code><![CDATA[returnValueMap]]></code>
-      <code><![CDATA[returnValueMap]]></code>
-      <code><![CDATA[returnValueMap]]></code>
-    </DeprecatedMethod>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function setUp(): void]]></code>
-    </MissingOverrideAttribute>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$getMap]]></code>
+      <code><![CDATA[$hasMap]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$wrappedCallable[0]]]></code>
       <code><![CDATA[$wrappedCallable[1]]]></code>
