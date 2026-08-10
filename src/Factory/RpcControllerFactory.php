@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace Laminas\ApiTools\Rpc\Factory;
 
-use Exception;
 use Laminas\ApiTools\Rpc\RpcController;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\Factory\AbstractFactoryInterface;
-use Laminas\ServiceManager\ServiceLocatorInterface;
 use Override;
 use Psr\Container\ContainerInterface;
 
@@ -64,21 +62,6 @@ class RpcControllerFactory implements AbstractFactoryInterface
     }
 
     /**
-     * Determine if we can create a service with name (v2).
-     *
-     * Provided for backwards compatibility; proxies to canCreate().
-     *
-     * @param string $name
-     * @param string $requestedName
-     * @return bool
-     */
-    public function canCreateServiceWithName(ServiceLocatorInterface $controllerManager, $name, $requestedName)
-    {
-        $container = $controllerManager->getServiceLocator() ?: $controllerManager;
-        return $this->canCreate($container, $requestedName);
-    }
-
-    /**
      * Create and return an RpcController instance.
      *
      * @param string $requestedName
@@ -109,22 +92,6 @@ class RpcControllerFactory implements AbstractFactoryInterface
         $controller = new RpcController();
         $controller->setWrappedCallable($callable);
         return $controller;
-    }
-
-    /**
-     * Create and return an RpcController instance (v2).
-     *
-     * Provided for backwards compatibility; proxies to __invoke().
-     *
-     * @param string $name
-     * @param string $requestedName
-     * @return RpcController
-     * @throws Exception
-     */
-    public function createServiceWithName(ServiceLocatorInterface $controllerManager, $name, $requestedName)
-    {
-        $container = $controllerManager->getServiceLocator() ?: $controllerManager;
-        return $this($container, $requestedName);
     }
 
     /**

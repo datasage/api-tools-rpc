@@ -19,8 +19,6 @@
       <code><![CDATA[RpcControllerFactory]]></code>
     </ClassMustBeFinal>
     <MixedArgument>
-      <code><![CDATA[$container]]></code>
-      <code><![CDATA[$container]]></code>
       <code><![CDATA[$container->get('ControllerManager')]]></code>
       <code><![CDATA[$string]]></code>
     </MixedArgument>
@@ -35,8 +33,6 @@
       <code><![CDATA[$config]]></code>
       <code><![CDATA[$config]]></code>
       <code><![CDATA[$config]]></code>
-      <code><![CDATA[$container]]></code>
-      <code><![CDATA[$container]]></code>
     </MixedAssignment>
     <MixedMethodCall>
       <code><![CDATA[new $class()]]></code>
@@ -47,18 +43,10 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$method]]></code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedParam>
-      <code><![CDATA[$name]]></code>
-      <code><![CDATA[$name]]></code>
-    </PossiblyUnusedParam>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $callable]]></code>
       <code><![CDATA[$callable]]></code>
     </RiskyTruthyFalsyComparison>
-    <UndefinedInterfaceMethod>
-      <code><![CDATA[getServiceLocator]]></code>
-      <code><![CDATA[getServiceLocator]]></code>
-    </UndefinedInterfaceMethod>
   </file>
   <file src="src/Module.php">
     <ClassMustBeFinal>
@@ -187,18 +175,6 @@
     <MissingPropertyType>
       <code><![CDATA[$controllers]]></code>
     </MissingPropertyType>
-    <MixedArgument>
-      <code><![CDATA[$controllers]]></code>
-      <code><![CDATA[$controllers]]></code>
-      <code><![CDATA[$controllers]]></code>
-      <code><![CDATA[$this->controllers]]></code>
-      <code><![CDATA[$this->controllers]]></code>
-      <code><![CDATA[$this->controllers]]></code>
-      <code><![CDATA[$this->controllers]]></code>
-      <code><![CDATA[$this->controllers]]></code>
-      <code><![CDATA[$this->controllers]]></code>
-      <code><![CDATA[$this->controllers]]></code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$getMap]]></code>
       <code><![CDATA[$hasMap]]></code>
@@ -242,6 +218,11 @@
     <UnusedReturnValue>
       <code><![CDATA[ControllerManager&MockObject]]></code>
     </UnusedReturnValue>
+    <UnusedVariable>
+      <code><![CDATA[$controllers]]></code>
+      <code><![CDATA[$controllers]]></code>
+      <code><![CDATA[$controllers]]></code>
+    </UnusedVariable>
   </file>
   <file src="test/Factory/TestAsset/Foo.php">
     <ClassMustBeFinal>
