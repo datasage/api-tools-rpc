@@ -102,14 +102,12 @@ class RpcControllerFactoryTest extends TestCase
 
         $controllers = $this->controllers;
 
-        $this->assertTrue($this->factory->canCreateServiceWithName(
-            $controllers,
-            'Controller\Foo',
+        $this->assertTrue($this->factory->canCreate(
+            $this->services,
             'Controller\Foo'
         ));
-        $controller = $this->factory->createServiceWithName(
-            $controllers,
-            'Controller\Foo',
+        $controller = ($this->factory)(
+            $this->services,
             'Controller\Foo'
         );
 
@@ -149,14 +147,12 @@ class RpcControllerFactoryTest extends TestCase
 
         $controllers = $this->controllers;
 
-        $this->assertTrue($this->factory->canCreateServiceWithName(
-            $controllers,
-            'Controller\Foo',
+        $this->assertTrue($this->factory->canCreate(
+            $this->services,
             'Controller\Foo'
         ));
-        $controller = $this->factory->createServiceWithName(
-            $controllers,
-            'Controller\Foo',
+        $controller = ($this->factory)(
+            $this->services,
             'Controller\Foo'
         );
 
@@ -193,14 +189,12 @@ class RpcControllerFactoryTest extends TestCase
 
         $controllers = $this->controllers;
 
-        $this->assertTrue($this->factory->canCreateServiceWithName(
-            $controllers,
-            'Controller\Foo',
+        $this->assertTrue($this->factory->canCreate(
+            $this->services,
             'Controller\Foo'
         ));
-        $controller = $this->factory->createServiceWithName(
-            $controllers,
-            'Controller\Foo',
+        $controller = ($this->factory)(
+            $this->services,
             'Controller\Foo'
         );
 
@@ -220,9 +214,8 @@ class RpcControllerFactoryTest extends TestCase
             [['config', false]],
             []
         );
-        $this->assertFalse($this->factory->canCreateServiceWithName(
-            $this->controllers,
-            'Controller\Foo',
+        $this->assertFalse($this->factory->canCreate(
+            $this->services,
             'Controller\Foo'
         ));
     }
@@ -234,9 +227,8 @@ class RpcControllerFactoryTest extends TestCase
             [['config', true]],
             [['config', []]],
         );
-        $this->assertFalse($this->factory->canCreateServiceWithName(
-            $this->controllers,
-            'Controller\Foo',
+        $this->assertFalse($this->factory->canCreate(
+            $this->services,
             'Controller\Foo'
         ));
     }
@@ -248,9 +240,8 @@ class RpcControllerFactoryTest extends TestCase
             [['config', true]],
             [['config', ['api-tools-rpc' => []]]],
         );
-        $this->assertFalse($this->factory->canCreateServiceWithName(
-            $this->controllers,
-            'Controller\Foo',
+        $this->assertFalse($this->factory->canCreate(
+            $this->services,
             'Controller\Foo'
         ));
     }
@@ -271,9 +262,8 @@ class RpcControllerFactoryTest extends TestCase
                 ],
             ],
         );
-        $this->assertFalse($this->factory->canCreateServiceWithName(
-            $this->controllers,
-            'Controller\Foo',
+        $this->assertFalse($this->factory->canCreate(
+            $this->services,
             'Controller\Foo'
         ));
     }
@@ -294,9 +284,8 @@ class RpcControllerFactoryTest extends TestCase
                 ],
             ],
         );
-        $this->assertFalse($this->factory->canCreateServiceWithName(
-            $this->controllers,
-            'Controller\Foo',
+        $this->assertFalse($this->factory->canCreate(
+            $this->services,
             'Controller\Foo'
         ));
     }
@@ -341,9 +330,8 @@ class RpcControllerFactoryTest extends TestCase
         );
         $this->expectException(ServiceNotCreatedException::class);
         $this->expectExceptionMessage('Unable to create');
-        $this->factory->createServiceWithName(
-            $this->controllers,
-            'Controller\Foo',
+        ($this->factory)(
+            $this->services,
             'Controller\Foo'
         );
     }
@@ -384,9 +372,8 @@ class RpcControllerFactoryTest extends TestCase
                 ],
             ],
         );
-        $controller = $this->factory->createServiceWithName(
-            $this->controllers,
-            'Controller\Foo',
+        $controller = ($this->factory)(
+            $this->services,
             'Controller\Foo'
         );
 
