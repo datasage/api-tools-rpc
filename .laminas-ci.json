@@ -9,5 +9,8 @@
     {
       "name": "README Linting"
     }
-  ]
+  ],
+  "ignore_php_platform_requirements": {
+    "8.6": true
+  }
 }
